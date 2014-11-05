@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    
+    <title>Transaction Overview</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div id="header" class="section">
+    	<div id="header-navigation">
+            <a href="overview.html"><div class="button-go-back">&larr; Go Back</div></a>
+            <a href="single-transaction.html"><div class="button-new-transaction">+</div></a>
+        </div><!-- #header-navigation -->
+    </div><!-- #header -->
+
+	<div class="form-container">
+    <h1><span id="transaction-status">New</span> Transaction</h1>
+    <form name="transaction" onSubmit="return singleTransaction.prototype.saveTransaction()" data-index="false" data-id="false">
+    
+        <input type="text" name="title" placeholder="Title" />
+    	<select id="type">
+        	<option value="0" disabled selected>Select Transaction Type</option>
+        	<option value="expenses">Expense</option>
+            <option value="income">Income</option>
+            <option value="savings">Savings</option>
+        </select>
+        <input type="text" name="amount" placeholder="Amount" />
+    	<select name="tax">
+        	<option value="true">Include Tax</option>
+            <option value="false" selected>Don't Include Tax</option>
+        </select>
+        <select name="freq">
+        	<option name="once" value="1">Once</option>
+        	<option name="once" value="365">Daily</option>
+        	<option name="weekly" value="52">Weekly</option>
+            <option name="bi-weekly" value="26">Bi-Weekly</option>
+            <option name="monthly" value="12" selected>Monthly</option>
+            <option name="annually" value="1">Annually</option>
+        </select>
+        <input type="submit" value="Save"/>
+        
+    </form>
+    </div><!-- #single-transaction-container -->
+    
+    
+    <script type="text/javascript" src="js/single-transaction.min.js"></script>
+    <script type="text/javascript" src="js/functions.min.js"></script>
+    
+    <script type="text/javascript"> var transaction = new singleTransaction(); </script>
+
+	<script type="text/javascript">
+	
+	if ( localStorage.getItem('tmpTransaction') != null )
+	{
+		var transaction = JSON.parse( localStorage.getItem('tmpTransaction') );
+		var form        = document.forms['transaction'];
+		
+		form.amount.value   = transaction.amount;
+		form.freq.value     = transaction.freq;
+		form.tax.value      = transaction.tax;
+		form.title.value    = transaction.title;
+		form.type.value     = transaction.type;
+		
+		form.setAttribute('data-index', transaction.index);
+		form.setAttribute('data-id', transaction.id);
+		
+		document.getElementById('transaction-status').innerHTML = 'Edit';
+		
+		// Destroy the temporary file
+		localStorage.setItem('tmpTransaction', null);
+	}
+    
+    </script>
+
+    
+</body>
+</html>

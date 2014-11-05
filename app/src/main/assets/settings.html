@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    
+    <title>Settings &minus; SimpleBudget</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="js/functions.min.js"></script>
+</head>
+
+<body>
+	<div id="header" class="section">
+    	<div id="header-navigation">
+            <a href="overview.html"><div class="button-go-back">&larr; Go Back</div></a>
+            <a href="single-transaction.html"><div class="button-new-transaction">+</div></a>
+        </div><!-- #header-navigation -->
+    </div><!-- #header -->
+
+	<div class="form-container">
+        <h1>Settings</h1>
+        <form name="settings" onSubmit="return Settings.prototype.saveSettings()">
+            <div class="label"><label>How Often Do You Budget?</label></div>
+            <select name="budgetingFreq">
+                <option name="weekly" value="365">Daily</option>
+                <option name="weekly" value="52">Weekly</option>
+                <option name="bi-weekly" value="26">Bi-Weekly</option>
+                <option name="monthly" value="12" selected>Monthly</option>
+                <option name="annually" value="1">Annually</option>
+            </select>
+            <div class="label"><label>Sort Transactions By</label></div>
+            <select name="sortOrder">
+                <option name="title" value="title">Title</option>
+                <option name="amount" value="amount">Amount</option>
+            </select>
+            <div class="label"><label>Currency Symbol</label></div>
+            <select name="currencySymbol">
+                <option name="usd" value="$">USD</option>
+                <option name="euro" value="&euro;">Euro</option>
+                <option name="yen" value="&yen;">Yen</option>
+            </select>
+            <div class="label"><label>Tax Amount</label></div>
+            <input type="text" name="taxAmount" />
+            <input type="submit" value="Save Settings"/>
+        </form><!-- name=settings -->
+    </div><!-- .form-container -->
+    
+    <script type="text/javascript" src="js/settings.min.js"></script>    
+    <script type="text/javascript">
+	
+		var settings = new Settings();
+		settings.fillForm();
+		
+	</script>
+
+</body>
+</html>

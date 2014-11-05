@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    
+    <title>Overview</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div id="header" class="section">
+    	<div id="header-navigation">
+            <a href="settings.html"><div class="button-settings">Settings</div></a>
+            <a href="single-transaction.html"><div class="button-new-transaction">+</div></a>
+        </div><!-- #header-navigation -->
+        <div id="budgeting-freq"></div>
+    </div><!-- #header -->
+    
+    
+    <div id="available-balance">
+    	<span id="available-balance-amount"></span><br />
+        <span id="available-balance-text"></span>
+    </div><!-- #available-balance -->
+    
+	<div id="percentage">
+    	<div id="percentage-expenses"></div>
+        <div id="percentage-available"></div>
+        <div id="percentage-savings"></div>
+    </div><!-- #percentage -->
+    
+    <div id="legend">
+    	<div id="legend-key-expenses" class="legend-key">
+        	<div class="key-block"></div>
+            <span>Expenses</span>
+        </div><!-- #legend-key-expenses -->
+    	<div id="legend-key-available" class="legend-key">
+        	<div class="key-block"></div>
+            <span>Available</span>
+        </div><!-- #legend-key-available -->
+    	<div id="legend-key-savings" class="legend-key">
+        	<div class="key-block"></div>
+            <span>Savings</span>
+        </div><!-- #legend-key-savings -->
+    </div><!-- #legend -->
+    
+    <div id="totals">
+        <div class="total" id="total-expenses">&minus; <span id="total-expenses-text"></span></div>
+    	<div class="total" id="total-income"><span id="total-income-text"></span></div>
+        <div class="total" id="total-savings"><span id="total-savings-text"></span></div>
+    </div><!-- #totals -->
+
+	<div class="section" id="transactions-savings"></div>
+	<div class="section" id="transactions-income"></div>
+    <div class="section" id="transactions-expenses"></div>
+    
+    <script type="text/javascript" src="js/functions.min.js"></script>
+    <script type="text/javascript" src="js/settings.min.js"></script>
+    <script type="text/javascript" src="js/single-transaction.min.js"></script>
+    <script type="text/javascript" src="js/transactions.min.js"></script>
+    <script type="text/javascript" src="js/transaction-slide.min.js"></script>
+    <script type="text/javascript" src="js/overview.min.js"></script>
+
+</body>
+</html>
